@@ -1,0 +1,50 @@
+﻿@model IEnumerable<BookManagement.Models.Book>
+
+@{
+    ViewData["Title"] = "Danh sách sách";
+}
+
+<h1>Danh sách sách</h1>
+
+<p>
+    <a asp-controller="Book"
+       asp-action="Create"
+       class="btn btn-primary">
+        Thêm sách
+    </a>
+</p>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Tên sách</th>
+            <th>Giá</th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Id</td>
+
+                <td>@book.Title</td>
+
+                <td>
+                    @book.Price.ToString("N0") VNĐ
+                </td>
+
+                <td>
+                    <a asp-controller="Book"
+                       asp-action="Detail"
+                       asp-route-id="@book.Id"
+                       class="btn btn-info">
+                        Chi tiết
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

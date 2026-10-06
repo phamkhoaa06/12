@@ -1,0 +1,36 @@
+﻿@model BookManagement.Models.Book
+
+@{
+    ViewData["Title"] = "Chi tiết sách";
+}
+
+<h1>Chi tiết sách</h1>
+
+<div class="card">
+    <div class="card-body">
+
+        <p>
+            <strong>ID:</strong>
+            @Model.Id
+        </p>
+
+        <p>
+            <strong>Tên sách:</strong>
+            @Model.Title
+        </p>
+
+        <p>
+            <strong>Giá:</strong>
+            @Model.Price.ToString("N0") VNĐ
+        </p>
+
+    </div>
+</div>
+
+<br />
+
+<a asp-controller="Book"
+   asp-action="Index"
+   class="btn btn-secondary">
+    Quay lại
+</a>
